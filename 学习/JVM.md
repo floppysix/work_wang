@@ -1,0 +1,4 @@
+- 获取栈堆信息
+	- jmap -dump:live,format=b,file=411.hprof 411
+	- jstack 27592
+	- netstat -nat|grep -i "9099"|wc -l

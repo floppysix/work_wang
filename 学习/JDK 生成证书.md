@@ -1,0 +1,3 @@
+- keytool -genkey -alias testhttps1 -keyalg RSA -keysize 2048 -validity 36500 -keystore  "D:testhttps1.keystore"
+- keytool -genkey -alias testhttps1 -keyalg RSA
+- keytool -genkeypair -alias 'tomcat' -keyalg 'RSA' -keystore '/usr/local/tomcat/conf/tomcat.keystore'
