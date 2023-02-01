@@ -50,7 +50,7 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "配置文件"
+git commit -m "git pull报错"
 # 上传
 git push zongjie main
 
@@ -59,5 +59,19 @@ git push zongjie main
 
 ## 拉取文件
 ```shell
+git pull origin main
+```
+
+
+## # git pull遇到错误：error: Your local changes to the following files would be overwritten by merge:
+1. 如果你想保留刚才本地修改的代码，并把git服务器上的代码pull到本地（本地刚才修改的代码将会被暂时封存起来）
+```SHELL
+git stash
+git pull origin main
+git stash pop
+```
+2. 如果你想完全地覆盖本地的代码，只保留服务器端代码，则直接回退到上一个版本，再进行pull
+```SHELL
+git reset --hard
 git pull origin main
 ```
