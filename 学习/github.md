@@ -50,14 +50,14 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "linux_log"
+git commit -m "springboot_配置加载顺序"
 # 上传
-git push origin master
+git push zongjie main
 
 ```
 
 
 ## 拉取文件
 ```shell
-git pull origin master
+git pull origin main
 ```

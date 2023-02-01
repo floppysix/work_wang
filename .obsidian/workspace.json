@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习/github.md",
+                "file": "journals/journals/2023_02_01.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习/github.md",
+                "file": "journals/journals/2023_02_01.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "学习/github.md",
+                "file": "journals/journals/2023_02_01.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习/github.md"
+                "file": "journals/journals/2023_02_01.md"
               }
             }
           }
@@ -158,8 +158,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e6ebebf0d71ef9aa",
+  "active": "68673ffff3379458",
   "lastOpenFiles": [
+    "学习/github.md",
     "学习/springboot.md",
     "学习/typora.md",
     "学习/clickhouse.md",
@@ -168,7 +169,6 @@
     "学习/异常处理.md",
     "学习/提高运行性能.md",
     "学习/时间.md",
-    "学习/日志.md",
-    "学习/每日定时微信发消息.md"
+    "学习/日志.md"
   ]
 }
