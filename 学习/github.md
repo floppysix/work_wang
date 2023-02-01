@@ -45,4 +45,19 @@ Enter passphrase for key '/c/Users/wang/.ssh/id_rsa':972580
 http://www.yaotu.net/biancheng/283.html
 git pull --rebase guoyao master
 
+## 上传文件
+```shell
+# 添加至缓存区
+git add .
+# 提交
+git commit -m "linux_log"
+# 上传
+git push origin master
 
+```
+
+
+## 拉取文件
+```shell
+git pull origin master
+```
