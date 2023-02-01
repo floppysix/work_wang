@@ -9,6 +9,7 @@ spring则是需要提供一个[[IOC容器]]用于存储bean组件，spring则是
 |ClassPathXmlApplicationContext|通过读取类路径下的 XML 格式的配置文件创建 IOC 容器对象|
 |FileSystemXmlApplicationContext|通过文件系统路径读取 XML 格式的配置文件创建 IOC 容器对象|
 
+
 **Bean管理**
 - sping创建对象
 - spring注入属性

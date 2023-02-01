@@ -1,4 +1,4 @@
-# springboot 配置顺序问题
+# springboot配置顺序问题 
 
 ## Spring配置机制简介
 
@@ -127,7 +127,7 @@ DATETIME，不做任何改变，基本上是原样输入和输出。
     SELECT UNIX_TIMESTAMP(NOW()); #1550813420
     SELECT FROM_UNIXTIME(1550813420); #2019-02-22 13:30:20
 
-## 前端后端传输时间
+## [springboot]前端后端传输时间
 ### 1.  使用@DateTimeFormat和@JsonFormat注解
 	@DateTimeFormat是前端往后段传的时候使用，加在[实体类](https://so.csdn.net/so/search?q=%E5%AE%9E%E4%BD%93%E7%B1%BB&spm=1001.2101.3001.7020)中，然后controller中直接使用这个实体类接收参数。当前端传固定格式的字符串的时候会转换成date ； @JsonFormat是后端往前端传输的时候使用。
 
@@ -418,4 +418,60 @@ public String buyShoppingCart(@RequestBody BuyShoppingCartParam duyShoppingCartP
 ## 传参问题
 - No primary or single public constructor found for interface java.util.List
 	- 后端接口参数没有加@RequestBody参数
+
+
+# springboot项目打包
+## 无需配置环境变量
+1. 打包好springboot项目为jar包
+2. 找到安装好的JDK目录，将jre复制出来
+3. 放到同一个文件夹下，然后新建一个bat文件。
+4. bat文件中写入：start jre1.8.0_144/bin/java -jar ssqxDMQ.jar （就是制定启动环境而已）![[20210406085029518.png]]
+
+
+# 使用winsw将springboot部署为Windows服务(使用ing)
+1. 可将winsw.exe复制到自定义的目录，也可将重命名重命名
+2. 同目录下创建winsw.xml，注意 xml与exe文件必须同名
+3. winsw.xml需要配置jar启动的参数
+```xml
+<service> 
+     <id>guides-server</id> 
+     <name>guides-server</name>
+     <description>This is guides-server service.</description>
+     <!-- java环境变量 -->
+	 <env name="JAVA_HOME" value="%JAVA_HOME%"/>
+     <executable>java</executable> 
+     <arguments>-server -Xms512m -Xmx512m -Xmn128m -XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=256m -jar "E:\guides-server\jar\guides-server.jar" </arguments>
+  
+     <!-- 开机启动 -->
+     <startmode>Automatic</startmode>
+     <!-- 日志配置 -->
+     <logpath>%BASE%\log</logpath>
+     <logmode>rotate</logmode>
+ </service>
+```
+
+## nssm工具
+nssm是一个服务封装程序，它可以将普通exe程序封装成服务，实现开机自启动，同类型的工具还有微软自己的srvany，不过nssm更加简单易用，并且功能强大。
+
+1. 下载地址  [https://nssm.cc/download](https://nssm.cc/download)
+
+2. 解压压缩包，根据系统位数选择64或32位程序
+
+![[图片1.png]]
+
+3. 管理员权限打开命令行工具，切换到nssm.exe所在路径，运行 nssm install，打开程序配置界面
+
+![[图片2.png]] 
+
+4. 配置项说明：
+
+(1) Path：运行应用程序的程序
+
+(2) Startup directory：应用程序所在的目录
+
+(3) Arguments：应用运行的参数
+
+(4) Service name：生成服务的名称
+
+5. 点击install service 完成windows服务安装，在windows服务列表就能看到创建的服务了
 

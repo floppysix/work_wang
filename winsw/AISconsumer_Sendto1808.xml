@@ -1,0 +1,15 @@
+﻿ <service> 
+     <id>kafka_AISconsumer_Sendto1808</id> 
+     <name>kafka_AISconsumer_Sendto1808</name>
+     <description>This is kafka_AISconsumer_port service.</description>
+     <!-- java环境变量 -->
+	 <env name="JAVA_HOME" value="%JAVA_HOME%"/>
+     <executable>java</executable> 
+     <arguments>-jar "D:\Project\kafka\AIS\159\AISconsumer_Sendto1808.jar" </arguments>
+  
+     <!-- 开机启动 -->
+     <startmode>Automatic</startmode>
+     <!-- 日志配置 -->
+     <logpath>%BASE%\log</logpath>
+     <logmode>rotate</logmode>
+ </service>
