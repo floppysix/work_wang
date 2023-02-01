@@ -50,7 +50,7 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "springboot_配置加载顺序"
+git commit -m "配置文件"
 # 上传
 git push zongjie main
 

@@ -1,0 +1,173 @@
+{
+  "main": {
+    "id": "581dd4d4153f005d",
+    "type": "split",
+    "children": [
+      {
+        "id": "6d813326d22dd73f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e6ebebf0d71ef9aa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "journals/journals/2023_02_01.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5c5f295592e3549a",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "images/springboot加载顺序/cb39922824c641b695ced5e022536b72_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6f2e8e432819bd50",
+    "type": "split",
+    "children": [
+      {
+        "id": "ae66965e89758458",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "68673ffff3379458",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "77ed34c1a92274f8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "915db9a7c19cb618",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5c2cf78b1622359c",
+    "type": "split",
+    "children": [
+      {
+        "id": "db26b22f6f63a519",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "71a47dc77f5e85b4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "images/springboot加载顺序/cb39922824c641b695ced5e022536b72_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c2bc121f15550b09",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "images/springboot加载顺序/cb39922824c641b695ced5e022536b72_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "44c4becaa74586ae",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c3a82678d85e58d9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "images/springboot加载顺序/cb39922824c641b695ced5e022536b72_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "5c5f295592e3549a",
+  "lastOpenFiles": [
+    "images/springboot加载顺序/610132384a164f878f93d3c84021492a_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp",
+    "images/springboot加载顺序/2337e4ffb33e46f184cd7156f9d1c188_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp",
+    "images/springboot加载顺序/762d994f1446422587fefb62ec82eab1_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp",
+    "images/springboot加载顺序/96ed52eac50b4c0a90c4b5d0a93bedcf_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp",
+    "images/springboot加载顺序/73eabe09baad4e70ae0bce63364b6bd3_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp",
+    "images/springboot加载顺序/0e62d42567844dc6b69b883072511480_tplv-k3u1fbpfcp-zoom-in-crop-mark_4536_0_0_0.webp",
+    "学习/springboot.md",
+    "学习/github.md",
+    "学习/typora.md",
+    "journals/journals/2023_02_01.md"
+  ]
+}
