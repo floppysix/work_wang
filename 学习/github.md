@@ -50,7 +50,7 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "git pull报错"
+git commit -m "springboot——项目打包"
 # 上传
 git push zongjie main
 
