@@ -19,12 +19,12 @@
 	
 2. 设置密码
 	1. vim  /etc/clickhouse-server/users.xml，找到 users --> default --> 标签下的password修改成password_sha256_hex，并把密文填进去
-	2. <password_sha256_hex>7501885784c770f2556119f6e6a693b45b49eacbf29d084ea7ea1415d6f396a2</password_sha256_hex>
+	2. <password_sha256_hex>0f8bb1c4a3abee8d763399684736cac5d39eb3c431b0888f731a91e095360649</password_sha256_hex>
 ```
 
 #### 命令行启动
 ```
-clickhouse-client -h 111.206.121.60 -d default -m -u default --password Yw6une2X
+clickhouse-client -h 211.157.180.220 -d default -m -u default --password s8SKh8fe
 
 clickhouse-client -h 124.70.14.81 -d default -m -u default --password 0uKJM5Bj
 ```
@@ -129,7 +129,7 @@ spring:
 
 #### 创建数据库
 ```sql
-CREATE DATABASE IF NOT EXISTS chtest;   --使用默认库引擎创建库
+CREATE DATABASE IF NOT EXISTS AIS;   --使用默认库引擎创建库
 ```
 
 #### 2016-2017历史数据
@@ -360,7 +360,7 @@ SETTINGS index_granularity = 8192;
 
 #### 物化视图
 ```sql
-CREATE MATERIALIZED VIEW AIS_global.realtime
+CREATE MATERIALIZED VIEW AIS.realtime
 (
 
     `mmsi` String,
@@ -395,9 +395,9 @@ CREATE MATERIALIZED VIEW AIS_global.realtime
 
     `position` Nullable(String),
 
-    `longitude` String,
+    `longitude` String(Decimal64(6)),
 
-    `latitude` String,
+    `latitude` String(Decimal64(6)),
 
     `sog` Nullable(Float32),
 
@@ -434,8 +434,8 @@ primary key (mmsi)
 order by (mmsi)
 populate AS 
 SELECT mmsi, imo, vessel_name, callsign, vessel_type, vessel_type_code, vessel_type_cargo, vessel_class, `length`, width, flag_country, flag_code, destination, eta, draught, `position`, longitude, latitude, sog, cog, rot, heading, nav_status, nav_status_code, `source`, ts_pos_utc, ts_static_utc, dt_pos_utc, dt_static_utc, vessel_type_main, vessel_type_sub, message_type, dtg
-FROM AIS_global.ais
-WHERE dt_pos_utc > '2022-10-27 13:46:00';
+FROM AIS.ais
+WHERE dt_pos_utc > '2023-02-06 14:14:00';
 ```
 
 

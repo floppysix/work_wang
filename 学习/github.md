@@ -50,9 +50,9 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "springboot——项目打包"
+git commit -m "Linux_防火墙以及系统时间"
 # 上传
-git push zongjie main
+git push origin main
 
 ```
 

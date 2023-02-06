@@ -1,3 +1,43 @@
+## Linux系统时间
+```shell
+# 用 ntpdate从时间服务器更新时间
+yum -y install ntp
+date
+# 将本地时间与网络时间同步
+ntpdate time.nist.gov
+
+# 保存配置
+hwclock -w
+```
+
+## 防火墙以及开放端口
+```shell
+systemctl  status firewalld.service查看防火墙的状态；
+
+systemctl  start firewalld.service启动防火墙；
+
+systemctl  stop firewalld.service关闭防火墙；
+
+systemctl  restart firewalld.service重启防火墙；
+
+systemctl  enable firewalld.service开机启动防火墙；
+
+systemctl  disable firewalld.service开机禁用防火墙；
+
+systemctl  is-enabled firewalld.service查看防火墙是否开机启动
+
+
+
+// 开放端口命令
+ firewall-cmd --zone=public --add-port=28080/tcp --permanent
+ // 或者
+ /sbin/iptables -I INPUT -p tcp --dport 28080 -j ACCEPT
+
+ // 重启防火墙命令
+ systemctl restart firewalld.service
+
+```
+
 ## 日志查看
 ```shell
 # 动态查看日志
