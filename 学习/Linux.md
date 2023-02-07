@@ -29,7 +29,7 @@ systemctl  is-enabled firewalld.service查看防火墙是否开机启动
 
 
 // 开放端口命令
- firewall-cmd --zone=public --add-port=28080/tcp --permanent
+ firewall-cmd --zone=public --add-port=8123/tcp --permanent
  // 或者
  /sbin/iptables -I INPUT -p tcp --dport 28080 -j ACCEPT
 
@@ -40,6 +40,9 @@ systemctl  is-enabled firewalld.service查看防火墙是否开机启动
 
 ## 日志查看
 ```shell
+
+# 查看服务日志
+journalctl -xeu kubelet
 # 动态查看日志
 tail -f catalina.ou
 # 从头打开日志文件

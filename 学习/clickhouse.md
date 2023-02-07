@@ -132,6 +132,88 @@ spring:
 CREATE DATABASE IF NOT EXISTS AIS;   --使用默认库引擎创建库
 ```
 
+### 全球数据入库建表语句
+```sql
+CREATE TABLE AIS.ais
+(
+
+    `mmsi` String,
+
+    `imo` Nullable(String),
+
+    `vessel_name` Nullable(String),
+
+    `callsign` Nullable(String),
+
+    `vessel_type` Nullable(String),
+
+    `vessel_type_code` Nullable(Int32),
+
+    `vessel_type_cargo` Nullable(String),
+
+    `vessel_class` Nullable(String),
+
+    `length` Nullable(Int32),
+
+    `width` Nullable(Int32),
+
+    `flag_country` Nullable(String),
+
+    `flag_code` Nullable(Int32),
+
+    `destination` Nullable(String),
+
+    `eta` Nullable(String),
+
+    `draught` Nullable(Float32),
+
+    `position` Nullable(String),
+
+    `longitude` Nullable(Decimal64(6)),
+
+    `latitude` Nullable(Decimal64(6)),
+
+    `sog` Nullable(Float32),
+
+    `cog` Nullable(Float32),
+
+    `rot` Nullable(Float32),
+
+    `heading` Nullable(Int32),
+
+    `nav_status` Nullable(String),
+
+    `nav_status_code` Nullable(Int32),
+
+    `source` Nullable(String),
+
+    `ts_pos_utc` Nullable(String),
+
+    `ts_static_utc` Nullable(String),
+
+    `dt_pos_utc` DateTime,
+
+    `dt_static_utc` DateTime,
+
+    `vessel_type_main` Nullable(String),
+
+    `vessel_type_sub` Nullable(String),
+
+    `message_type` Nullable(Int32),
+
+    `dtg` Nullable(String)
+)
+ENGINE = MergeTree
+PARTITION BY toYYYYMMDD(dt_pos_utc)
+ORDER BY mmsi
+SETTINGS index_granularity = 8192;
+```
+
+### 全球物化视图
+```sql
+
+```
+
 #### 2016-2017历史数据
 ```sql
 CREATE TABLE AIS_temp1.ais
@@ -395,9 +477,9 @@ CREATE MATERIALIZED VIEW AIS.realtime
 
     `position` Nullable(String),
 
-    `longitude` String(Decimal64(6)),
+    `longitude` Nullable(Decimal64(6)),
 
-    `latitude` String(Decimal64(6)),
+    `latitude` Nullable(Decimal64(6)),
 
     `sog` Nullable(Float32),
 

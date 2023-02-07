@@ -50,7 +50,7 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "Linux_防火墙以及系统时间"
+git commit -m "2023.2.7"
 # 上传
 git push origin main
 
