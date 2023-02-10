@@ -50,7 +50,7 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "2023.2.7"
+git commit -m "k8s"
 # 上传
 git push origin main
 
