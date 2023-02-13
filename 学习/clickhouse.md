@@ -19,7 +19,10 @@
 	
 2. 设置密码
 	1. vim  /etc/clickhouse-server/users.xml，找到 users --> default --> 标签下的password修改成password_sha256_hex，并把密文填进去
-	2. <password_sha256_hex>0f8bb1c4a3abee8d763399684736cac5d39eb3c431b0888f731a91e095360649</password_sha256_hex>
+	2. <password_sha256_hex>ba4d1ca428b4b7b6fb7f3054a1f0a4501c61e9ccc9cfa31b41c4fdc27c215240</password_sha256_hex>
+
+明文密码：DjijmDL/
+
 ```
 
 #### 命令行启动
@@ -27,8 +30,63 @@
 clickhouse-client -h 211.157.180.220 -d default -m -u default --password s8SKh8fe
 
 clickhouse-client -h 124.70.14.81 -d default -m -u default --password 0uKJM5Bj
+
+clickhouse-client -h 192.168.10.102 -d default -m -u default --password DjijmDL/
 ```
 
+#### 卸载clickhouse
+```bash
+1、查看已安装包
+
+rpm -qa | grep clickhouse
+
+2、卸载clickhouse相关软件
+
+rpm -e clickhouse-client-21.7.3.14-2.noarch --nodeps rpm -e clickhouse-server-21.7.3.14-2.noarch --nodeps rpm -e clickhouse-common-static-21.7.3.14-2.x86_64 --nodeps rpm -e clickhouse-common-static-dbg-21.7.3.14-2.x86_64 --nodeps
+
+3、删除相关的目录和数据
+
+#数据目录
+rm -rf /var/lib/clickhouse
+
+#删除集群配置文件
+rm -rf /etc/metrika.xml
+
+#删除配置文件
+rm -rf /etc/clickhouse-*
+
+#删除日志文件
+rm -rf /var/log/clickhouse-server
+
+
+4、全局查找clickhouse文件和目录，如果存在，则全部删除
+
+find / -name clickhouse
+```
+#### 备份
+```bash
+sudo mkdir -p /var/lib/clickhouse/shadow/
+# 将新建的文件夹用户改成clickhouse
+chown clickhouse:clickhouse shadow
+# 执行备份语句
+echo -n 'alter table t_order_mt freeze' | clickhouse-client
+#创建备份存储路径
+sudo mkdir -p /var/lib/clickhouse/backup/
+#拷贝数据到备份路径
+sudo cp -r /var/lib/clickhouse/shadow/ /var/lib/clickhouse/backup/my-backup-name
+#为下次备份准备，删除 shadow 下的数据
+sudo rm -rf /var/lib/clickhouse/shadow/*
+# 模拟删除备份过的表
+echo ' drop table t_order_mt ' | clickhouse-client
+# 重新创建表
+cat events.sql | clickhouse-client
+将备份复制到 detached 目录
+sudo cp -rl backup/my-backup-name/1/store/37e/37e67f35-2477-42be-b7e6-7f35247782be/* data/AIS/ais/detached/
+# 将复制的备份所在文件夹改成clickhouse
+chown -R clickhouse:clickhouse detached/
+执行 attach
+echo 'alter table t_order_mt attach partition 20200601' | clickhouse-client
+```
 
 ### 日志
 

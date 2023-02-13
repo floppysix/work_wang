@@ -1,3 +1,12 @@
+
+## yum 安装失败
+```bash
+[root@base ~]# scp /bin/rpm root@hadoop102:/bin/rpm
+[root@base ~]# scp /usr/lib/rpm/rpmrc  root@hadoop102:/usr/lib/rpm/rpmrc
+[root@base ~]# scp /usr/lib/rpm/macros  root@hadoop102:/usr/lib/rpm
+
+```
+
 ## Linux系统时间
 ```shell
 # 用 ntpdate从时间服务器更新时间

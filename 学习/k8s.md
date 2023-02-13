@@ -1,3 +1,4 @@
+[Kubernetes核心实战 (yuque.com)](https://www.yuque.com/leifengyang/oncloud/ctiwgo#qBzrM)
 # docker
 ## 安装
 1. 移除以前docker相关包
