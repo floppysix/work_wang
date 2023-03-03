@@ -81,11 +81,37 @@ echo ' drop table t_order_mt ' | clickhouse-client
 # 重新创建表
 cat events.sql | clickhouse-client
 将备份复制到 detached 目录
-sudo cp -rl backup/my-backup-name/1/store/37e/37e67f35-2477-42be-b7e6-7f35247782be/* data/AIS/ais/detached/
+sudo cp -rl backup/my-backup-name/1/store/ce6/ce693def-66b9-4a50-8e69-3def66b92a50/* data/AIS/ais/detached/
 # 将复制的备份所在文件夹改成clickhouse
 chown -R clickhouse:clickhouse detached/
 执行 attach
 echo 'alter table t_order_mt attach partition 20200601' | clickhouse-client
+```
+
+```sql
+ALTER table AIS_global.ais attach partition 20230221;
+ALTER table AIS_global.ais attach partition 20230222;
+ALTER table AIS_global.ais attach partition 20230223;
+ALTER table AIS_global.ais attach partition 20230224;
+ALTER table AIS_global.ais attach partition 20230225;
+ALTER table AIS_global.ais attach partition 20230226;
+ALTER table AIS_global.ais attach partition 20230227;
+ALTER table AIS_global.ais attach partition 20230228;
+ALTER table AIS_global.ais attach partition 20230301;
+
+ALTER table AIS_global.ais drop partition 20230221;
+ALTER table AIS_global.ais drop partition 20230222;
+ALTER table AIS_global.ais drop partition 20230223;
+ALTER table AIS_global.ais drop partition 20230224;
+ALTER table AIS_global.ais drop partition 20230225;
+ALTER table AIS_global.ais drop partition 20230226;
+ALTER table AIS_global.ais drop partition 20230227;
+ALTER table AIS_global.ais drop partition 20230228;
+ALTER table AIS_global.ais drop partition 20230301;
+```
+
+```bash
+cp -rl /opt/module/AIS-backup/0220-0228/* /var/lib/clickhouse/data/AIS_global/ais/detached/
 ```
 
 ### 日志
@@ -132,6 +158,10 @@ SELECT
 FROM system.parts where database = 'system' group by `table`
 ```
 
+#### 查看日志文件的分区
+```sql
+SELECT * FROM system.parts where database = 'system' and `table`= 'query_log'
+```
 
 #### 删除日志文件
 ```sql
@@ -155,7 +185,7 @@ vim /etc/clickhouse-server/config.xml
 解决方法：
 	修改config.xml
 	<merge_tree>
-        <max_suspicious_broken_parts>500</max_suspicious_broken_parts>
+        、500</max_suspicious_broken_parts>
 	</merge_tree>
 参考链接：
 	https://blog.csdn.net/Vector97/article/details/125222928
@@ -187,12 +217,12 @@ spring:
 
 #### 创建数据库
 ```sql
-CREATE DATABASE IF NOT EXISTS AIS;   --使用默认库引擎创建库
+CREATE DATABASE IF NOT EXISTS AIS_global;   --使用默认库引擎创建库
 ```
 
 ### 全球数据入库建表语句
 ```sql
-CREATE TABLE AIS.ais
+CREATE TABLE AIS_global.ais
 (
 
     `mmsi` String,
@@ -500,7 +530,7 @@ SETTINGS index_granularity = 8192;
 
 #### 物化视图
 ```sql
-CREATE MATERIALIZED VIEW AIS.realtime
+CREATE MATERIALIZED VIEW AIS_global.realtime
 (
 
     `mmsi` String,
@@ -574,7 +604,7 @@ primary key (mmsi)
 order by (mmsi)
 populate AS 
 SELECT mmsi, imo, vessel_name, callsign, vessel_type, vessel_type_code, vessel_type_cargo, vessel_class, `length`, width, flag_country, flag_code, destination, eta, draught, `position`, longitude, latitude, sog, cog, rot, heading, nav_status, nav_status_code, `source`, ts_pos_utc, ts_static_utc, dt_pos_utc, dt_static_utc, vessel_type_main, vessel_type_sub, message_type, dtg
-FROM AIS.ais
+FROM AIS_global.ais
 WHERE dt_pos_utc > '2023-02-06 14:14:00';
 ```
 

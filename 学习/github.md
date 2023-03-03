@@ -50,7 +50,7 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "clickhouse的备份"
+git commit -m "2023/0303"
 # 上传
 git push origin main
 

@@ -1961,10 +1961,10 @@ spec:
       emptyDir: {}
     - name: config
       configMap:
-        name: redis-conf
+        name: redis-conf  # 指的是所创建的redis的配置文件名
         items:
-        - key: redis.conf
-          path: redis.conf
+        - key: redis.conf # redis的配置文件中data下面的key
+          path: redis.conf # 指的是redis容器内部的位置/redis-master/redis.conf
 ```
 
 #### 检查默认配置

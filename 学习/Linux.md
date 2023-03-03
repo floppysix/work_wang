@@ -1,4 +1,29 @@
 
+## 压缩
+```
+# 压缩
+zip -r 压缩包名 要压缩的文件
+# 解压
+unzip 压缩包名
+```
+
+
+## vim 命令
+```shell
+在光标的位置按“yy”，复制当前行，然后再光标的行按“p”,粘贴到下一行，原来的往下顺移；
+删除当前行-------dd
+复制多行----------nyy(比如3yy，复制3行)
+删除多行----------ndd
+复制多遍----------np
+```
+## 查看文件夹大小
+```SHELL
+# 列出当前文件以及文件夹的大小
+du -sh *
+# 查看单独文件的大小(backup.sh 文件名)
+du -s  backup.sh ，ls -lh backup.sh
+
+```
 ## yum 安装失败
 ```bash
 [root@base ~]# scp /bin/rpm root@hadoop102:/bin/rpm
@@ -46,6 +71,7 @@ systemctl  is-enabled firewalld.service查看防火墙是否开机启动
  systemctl restart firewalld.service
 
 ```
+
 
 ## 日志查看
 ```shell
