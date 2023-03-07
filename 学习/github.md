@@ -50,7 +50,7 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "二分法"
+git commit -m "gulimall"
 # 上传
 git push origin main
 
