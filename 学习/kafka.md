@@ -68,7 +68,7 @@ hadoop102
 		>[atguigu@hadoop102 ~]$ mkdir bin
 		>[atguigu@hadoop102 ~]$ cd bin
 		>[atguigu@hadoop102 bin]$ vim xsync
-```
+```bash
 #!/bin/bash
 
 #1. 判断参数个数

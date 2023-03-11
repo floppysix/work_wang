@@ -27,7 +27,7 @@
 
 #### 命令行启动
 ```
-clickhouse-client -h 211.157.180.220 -d default -m -u default --password s8SKh8fe
+clickhouse-client -h 211.157.180.220 -d default -m -u default --password DjijmDL/
 
 clickhouse-client -h 124.70.14.81 -d default -m -u default --password 0uKJM5Bj
 
@@ -217,12 +217,12 @@ spring:
 
 #### 创建数据库
 ```sql
-CREATE DATABASE IF NOT EXISTS AIS_global;   --使用默认库引擎创建库
+CREATE DATABASE IF NOT EXISTS AIS;   --使用默认库引擎创建库
 ```
 
 ### 全球数据入库建表语句
 ```sql
-CREATE TABLE AIS_global.ais
+CREATE TABLE AIS.ais
 (
 
     `mmsi` String,
@@ -530,7 +530,7 @@ SETTINGS index_granularity = 8192;
 
 #### 物化视图
 ```sql
-CREATE MATERIALIZED VIEW AIS_global.realtime
+CREATE MATERIALIZED VIEW AIS.realtime
 (
 
     `mmsi` String,
@@ -604,7 +604,7 @@ primary key (mmsi)
 order by (mmsi)
 populate AS 
 SELECT mmsi, imo, vessel_name, callsign, vessel_type, vessel_type_code, vessel_type_cargo, vessel_class, `length`, width, flag_country, flag_code, destination, eta, draught, `position`, longitude, latitude, sog, cog, rot, heading, nav_status, nav_status_code, `source`, ts_pos_utc, ts_static_utc, dt_pos_utc, dt_static_utc, vessel_type_main, vessel_type_sub, message_type, dtg
-FROM AIS_global.ais
+FROM AIS.ais
 WHERE dt_pos_utc > '2023-02-06 14:14:00';
 ```
 
