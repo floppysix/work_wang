@@ -50,7 +50,7 @@ git pull --rebase guoyao master
 # 添加至缓存区
 git add .
 # 提交
-git commit -m "mybatis"
+git commit -m "git-rebase"
 # 上传
 git push origin main
 
